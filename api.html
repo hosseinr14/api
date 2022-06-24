@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+
+body{
+ direction:rtl;
+ font-family:tahoma;
+}
+
+h2{
+ color:blue;
+ text-align:center;
+}
+
+</style>
+</head>
+<body>
+
+<div id="Result"></div>
+<p style="text-align:center;">
+ <button onclick="Load()">ok</button>
+</p>
+
+<script>
+
+function Load(){
+ const MyRequest = new XMLHttpRequest();
+ MyRequest.onload = function(){
+  document.getElementById("Result").innerHTML = this.responseText;
+
+
+
+  const customer = JSON.parse(this.responseText);
+  const output = `
+          <ul>
+            <li>gender: ${customer[0].gender.name.title}</li>
+            
+          </ul>
+        `;
+
+
+
+
+
+            document.getElementById('customer').innerHTML = output;
+
+ }
+ MyRequest.open("GET", "https://randomuser.me/api/?seed=erfan&results=10&page=1");
+ MyRequest.send();
+
+}
+
+</script>
+<center>
+<table border="2">
+<tr>
+  <td>11</td>
+  <td>12</td>
+  <td>13</td>
+  <td>14</td>
+</tr>
+<tr>
+  <td>21</td>
+  <td>22</td>
+  <td>23</td>
+  <td>24</td>
+</tr>
+<tr>
+  <td>31</td>
+  <td>32</td>
+  <td>33</td>
+  <td>34</td>
+</tr>
+<tr>
+  <td>41</td>
+  <td>42</td>
+  <td>43</td>
+  <td>44</td>
+</tr>
+</table>
+</center>
+</body>
+</html>
+
